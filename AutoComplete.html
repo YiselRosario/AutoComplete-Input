@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title> AutoComplete</title>
+  </head>
+  <body>
+        <h1> Autocomplete </h1>
+
+        <label>Fruits</label>
+        <input type="text" id="fruits" list="availableFruits" placeholder="Fruits...">
+
+        <datalist id="availableFruits">
+          <option value="apple">
+          <option value="orange">
+          <option value="banana">
+        </datalist>
+
+        <button id="button"> Select </button>
+        <br>
+        <br>
+        <div id="display"></div>
+
+  </body>
+</html>
+
+
+<script type="text/javascript">
+var availablefruits= ["apple", "orange", "banana"];
+// var availablefruits = document.getElementById('availablefruits').value;
+// var filter = availablefruits.filter(function(item){
+//   return item[0] === "a";
+// });
+
+function filter(availablefruits, index, letter){
+  var filterFruits = availablefruits.filter(function(word){
+    return word.chartAt(index) === letter;
+  });
+  return filterFruits;
+}
+
+var a = availablefruits.filterBy('a');
+var n = availablefruits.filterBy('i', 1);
+
+
+
+    var button = document.getElementById('button');
+      function onClick(event) {
+      var fruits = document.getElementById("fruits").value;
+       document.getElementById("display").innerHTML = fruits
+      }
+
+    button.addEventListener('click', onClick);
+</script>
