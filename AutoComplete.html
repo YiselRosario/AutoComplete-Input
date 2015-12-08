@@ -12,9 +12,9 @@
         <input type="text" id="fruits" list="availableFruits" placeholder="Fruits...">
 
         <datalist id="availableFruits">
-          <option value="apple">
-          <option value="orange">
-          <option value="banana">
+          <option  value="apple"></option>
+          <option  value="orange"></option>
+          <option  value="banana"></option>
         </datalist>
 
         <button id="button"> Select </button>
@@ -27,29 +27,45 @@
 
 
 <script type="text/javascript">
-// var availablefruits= ["apple", "orange", "banana"];
-// var availablefruits = document.getElementById('availablefruits').value;
-// var filter = availablefruits.filter(function(item){
-//   return item[0] === "a";
+// var availablefruits= ["apple", "orange", "banana"]; //works with the list
+// var fruits= ["apple", "orange", "banana"];  //works with the input
+//
+// Array.prototype.filterBy = function(letter, index) {
+//   index = index || 0; // Default index to zero if not passed
+//
+//   return this.filter(function(word) {
+//     return word[index] === letter; // Filter by letter at index
+//   });
+// };
+//
+//
+// var fruits= ["apple", "orange", "banana"];  //works with the input
+//
+//
+// var a = fruits.filterBy('a');
+//
+// var n = fruits.filterBy('i', 1);
+// var availableFruits = ["apple", "orange", "banana"].findIndex(function(x) { x == 'an'; });
+//
+// var fruits = document.getElementById("fruits").value;
+// var query = fruits.split(" ");
+// var i=0;
+// for (i=0; i<query.length; i++) {
+//   if (query[i].length == "an") {
+//     query.splice(i,1);
+//   }
+// }
+// var biggerWords = query.filter(function(word) {
+//     return word.length === "an";
 // });
 
-// function filter(availablefruits, index, letter){
-//   var filterFruits = availablefruits.filter(function(word){
-//     return word.chartAt(index) === letter;
-//   });
-//   return filterFruits;
-// }
-//
-// var a = availablefruits.filterBy('a');
-// var n = availablefruits.filterBy('i', 1);
-// 
 
-
+// --------------Display selection -----------------------
     var button = document.getElementById('button');
       function onClick(event) {
       var fruits = document.getElementById("fruits").value;
-       document.getElementById("display").innerHTML = fruits
+       document.getElementById("display").innerHTML = fruits;
       }
-
+//-----------------Button to Post selection----------------
     button.addEventListener('click', onClick);
 </script>
