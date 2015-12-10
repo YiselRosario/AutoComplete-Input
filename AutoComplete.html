@@ -14,12 +14,12 @@
     </span>
      <div id="Content">
         <label>Fruits</label>
-        <input type="text" id="fruits" list="availableFruits" onkeyup="searchSel()" placeholder="Fruits...">
+        <input type="text" id="fruits" list="availableFruits" onkeyup="searchSel()" placeholder="Fruits..." autocomplete="on">
 
         <datalist id="availableFruits">
-          <option  value="apple"></option>
-          <option  value="orange"></option>
-          <option  value="banana"></option>
+          <option  value="apple" label="Apple"></option>
+          <option  value="banana" label="Banana"></option>
+          <option  value="orange" label='Orange'></option>
         </datalist>
 
         <button id="button"> Select </button>
@@ -35,7 +35,21 @@
                    <!-- JAVASCRIPT -->
 <script type="text/javascript">
 //--------------------Search Selection--------------------------
-var option = ["apple", "orange", "banana"];
+
+var fruits = ["apple", "orange", "banana"];
+
+function searchSel() {
+      var input = document.getElementById('fruits').value.toLowerCase();
+      var output = document.getElementById('availableFruits').options;
+      for(var i=0;i<output.length;i++) {
+        if(output[i].value.indexOf(input) != -1){
+          output[i].selected=true;
+        }
+        if(document.getElementById('fruits').value==''){
+          output[0].selected=true;
+        }
+      }
+    }
 // --------------Display selection -----------------------
     var button = document.getElementById('button');
       function onClick(event) {
